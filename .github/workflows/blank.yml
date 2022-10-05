@@ -16,6 +16,7 @@ jobs:
         check-latest: true
     - name: Install dependencies
         run: npm install
+    - name: Install buil
         run: npm run build
     - name: deploy
       uses: citizen-of-planet-earth/cf-cli-action@v2
