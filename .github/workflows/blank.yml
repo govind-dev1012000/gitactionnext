@@ -30,17 +30,17 @@
 on: push
 
 jobs:
-  job1:
+  job:
     runs-on: ubuntu-latest
     steps:
       - name: Print a greeting
         run: echo 'Hello World'
-      # - name: Use node
-      # - uses: actions/setup-node@v3
-      #   with:
-      #   node-version: 16
-      #   - run: npm ci
-      #   - run: npm i
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16  
+      - run: npm ci
+      - run: npm test
       - name: deploy
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
