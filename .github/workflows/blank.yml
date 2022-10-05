@@ -35,3 +35,7 @@ jobs:
     steps:
       - name: Print a greeting
         run: echo 'Hello World'
+      - name: Use node
+        uses: actions/setup-node@v2
+      - name: Print a finish
+        run: echo 'Hello World'
