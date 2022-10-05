@@ -1,29 +1,37 @@
-name: Deploy to Cloud Foundry
+# name: Deploy to Cloud Foundry
 
-on:
-  push:
-    branches:
-    - main
+# on:
+#   push:
+#     branches:
+#     - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-18.04
+#     steps:
+#     - name: Use node
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '16.13.2'
+#         check-latest: true
+#     - name: Install dependencies
+#         run: npm install
+#     - name: Install buil
+#         run: npm run build
+#     - name: deploy
+#       uses: citizen-of-planet-earth/cf-cli-action@v2
+#       with:
+#         cf_api: https://api.cf.us10-001.hana.ondemand.com
+#         cf_username: ${{ secrets.CF_USER }}
+#         cf_password: ${{ secrets.CF_PASS }}
+#         cf_org: c62be8e5trial
+#         cf_space: dev
+#         command: push
+on: push
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  job1:
+    runs-on: ubuntu-latest
     steps:
-    - name: Use node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16.13.2'
-        check-latest: true
-    - name: Install dependencies
-        run: npm install
-    - name: Install buil
-        run: npm run build
-    - name: deploy
-      uses: citizen-of-planet-earth/cf-cli-action@v2
-      with:
-        cf_api: https://api.cf.us10-001.hana.ondemand.com
-        cf_username: ${{ secrets.CF_USER }}
-        cf_password: ${{ secrets.CF_PASS }}
-        cf_org: c62be8e5trial
-        cf_space: dev
-        command: push
+      - name: Print a greeting
+        run: echo 'Hello World'
