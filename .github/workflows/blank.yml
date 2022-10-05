@@ -45,8 +45,8 @@ jobs:
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
           cf_api: https://api.cf.us10-001.hana.ondemand.com
-          cf_username: govi1012000@gmail.com
-          cf_password: Password@33355
+          cf_username: ${{ secrets.CF_USER }}
+          cf_password: ${{ secrets.CF_PASS }}
           cf_org: c62be8e5trial
           cf_space: dev
           command: push hello -b nodejs_buildpack
