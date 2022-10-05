@@ -39,8 +39,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16  
-      - run: npm ci
-      - run: npm test
+      - run: npm i
       - name: deploy
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
