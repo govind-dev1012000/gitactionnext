@@ -6,20 +6,23 @@ on:
     - main
 
 jobs:
-  build:
-    runs-on: ubuntu-18.04
-    # Build your app here
-
   deploy:
     runs-on: ubuntu-18.04
-    needs: build
-    
     steps:
-    - uses: citizen-of-planet-earth/cf-cli-action@master
+    - name: Use node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.13.2'
+        check-latest: true
+    - name: Install dependencies
+        run: npm install
+        run: npm run build
+    - name: deploy
+      uses: citizen-of-planet-earth/cf-cli-action@v2
       with:
         cf_api: https://api.cf.us10-001.hana.ondemand.com
         cf_username: ${{ secrets.CF_USER }}
         cf_password: ${{ secrets.CF_PASS }}
         cf_org: c62be8e5trial
         cf_space: dev
-        command: push -f manifest-dev.yml
+        command: push
