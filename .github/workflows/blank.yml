@@ -31,14 +31,22 @@ on: push
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Print a greeting
         run: echo 'Hello World'
-      - name: Use node
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      # - name: Use node
+      # - uses: actions/setup-node@v3
+      #   with:
+      #   node-version: 16
+      #   - run: npm ci
+      #   - run: npm i
+      - name: deploy
+        uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
-        node-version: 16
-        - run: npm ci
-        - run: npm i
+          cf_api: https://api.cf.us10-001.hana.ondemand.com
+          cf_username: ${{ secrets.CF_USER }}
+          cf_password: ${{ secrets.CF_PASS }}
+          cf_org: c62be8e5trial
+          cf_space: dev
+          command: push
