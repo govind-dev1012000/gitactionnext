@@ -40,6 +40,7 @@ jobs:
         with:
           node-version: 16  
       - run: npm i
+      - run: npm run build
       - name: deploy
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
@@ -48,4 +49,4 @@ jobs:
           cf_password: ${{ secrets.CF_PASS }}
           cf_org: c62be8e5trial
           cf_space: dev
-          command: push hello -b nodejs_buildpack
+          command: push
