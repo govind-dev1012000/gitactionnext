@@ -1,5 +1,5 @@
 applications:
-- name: strapibtp1
+- name: nextapp1
   command: npm start
   memory: 512M
   buildpack: nodejs_buildpack
