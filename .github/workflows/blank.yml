@@ -36,11 +36,11 @@ jobs:
       - name: Print a greeting
         run: echo 'Hello World'
       - uses: actions/checkout@v3
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16  
-      # - run: npm i
-      # - run: npm run build
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18  
+      - run: npm i
+      - run: npm run build
       - name: deploy
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:

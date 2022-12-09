@@ -1,5 +1,5 @@
 applications:
 - name: nextapp1
-  command: npm run build && npm start
+  command: npm start
   memory: 512M
   buildpack: nodejs_buildpack
