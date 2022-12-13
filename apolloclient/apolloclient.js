@@ -14,7 +14,7 @@ const defaultOptions = {
 
 const apolloclient = new ApolloClient({
   link: createUploadLink({
-    uri: "https://strapibtp_full.cfapps.us10-001.hana.ondemand.com/graphql",
+    uri: "https://nextapp1.cfapps.us10-001.hana.ondemand.com/graphql",
   }),
   cache: new InMemoryCache(),
   defaultOptions: defaultOptions,
