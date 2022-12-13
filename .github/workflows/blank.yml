@@ -41,17 +41,6 @@ jobs:
           node-version: 18  
       - run: npm i
       - run: npm run build
-      # - name: deploy
-      #   uses: citizen-of-planet-earth/cf-cli-action@v2
-      #   with:
-      #     cf_api: https://api.cf.us10-001.hana.ondemand.com
-      #     cf_username: ${{ secrets.CF_USER }}
-      #     cf_password: ${{ secrets.CF_PASS }}
-      #     cf_org: 94fe3e77trial
-      #     cf_space: dev
-      #     command: push
-  deploy:
-    steps:
       - name: deploy
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
