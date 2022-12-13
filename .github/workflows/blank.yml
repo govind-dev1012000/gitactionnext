@@ -41,6 +41,10 @@ jobs:
           node-version: 18  
       - run: npm i
       - run: npm run build
+  deploy:
+    needs: source
+    runs-on: ubuntu-latest
+    steps:
       - name: deploy
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
